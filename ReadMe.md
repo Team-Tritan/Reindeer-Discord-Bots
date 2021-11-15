@@ -2,7 +2,7 @@
 
 # Reindeer Discord Bots for Christmas!
 
-# About The Project:
+## About The Project:
 It's almost that time of the year again! To keep up last year's fun, I've decided to bring back the Reindeer Bots so everyone's server can be just a little bit more merry! This bot will sit in a voice channel named 'Reindeer Pin' to show some spirit in your server.
 
 
