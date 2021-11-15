@@ -29,5 +29,5 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 ## Links:
 - Check out [Tritan Bot](https://tritan.gg/invite) please!
 - Author: [Dylan James](https://github.com/dylanjamesdev)
-- Support: [Discord Server](https://discord.gg/scugye2)
+- Support: [Tritan Development](https://discord.gg/scugye2)
 
