@@ -1,6 +1,6 @@
 <center><img  src="https://images-ext-1.discordapp.net/external/TziDjM5SKqCwP-GcO19AWKHYqc9JzPUzIlnkNVChJHI/%3Fu%3Dhttps%253A%252F%252Fimages.vexels.com%252Fmedia%252Fusers%252F3%252F223118%252Fisolated%252Fpreview%252F53256632b9aceec9dec9dae643d23645-cute-reindeer-festive-illustration-by-vexels.png%26f%3D1%26nofb%3D1/https/external-content.duckduckgo.com/iu/" length='200px' width='200px'></center>
 
-# Reindeer Discord Bots for Christmas!
+# Reindeer Discord Bots!
 
 ## About The Project:
 It's almost that time of the year again! To keep up last year's fun, I've decided to bring back the Reindeer Bots so everyone's server can be just a little bit more merry! This bot will sit in a voice channel named 'Reindeer Pin' to show some spirit in your server.
