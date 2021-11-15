@@ -11,6 +11,7 @@ for (uwu of config.tokens) {
       activity: { name: `getting everything ready for christmas! | @mention help` },
       status: "dnd",
     });
+    
     console.log(`[${reindeer.user.tag}] Presence set to DND`);
 
     setInterval(() => {
