@@ -10,6 +10,9 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 - `[Mention] help` pulls up a info menu.
 - `[Mention]` gives the reindeer a carrot.
 
+## Hosted Versions:
+Dasher](https://discord.com/api/oauth2/authorize?client_id=789419994910818334&permissions=34982976&scope=bot), [Dancer](https://discord.com/api/oauth2/authorize?client_id=789418944989626408&permissions=34982976&scope=bot), [Prancer](https://discord.com/api/oauth2/authorize?client_id=789454241977860128&permissions=34982976&scope=bot), [Blitzen](https://discord.com/api/oauth2/authorize?client_id=789415712280018954&permissions=34982976&scope=bot), [Comet](https://discord.com/api/oauth2/authorize?client_id=789417819929575465&permissions=34982976&scope=bot), [Cupid](https://discord.com/api/oauth2/authorize?client_id=789418381920829460&permissions=34982976&scope=bot), [Donner](https://discord.com/api/oauth2/authorize?client_id=789456116881817650&permissions=34982976&scope=bot), [Vixen](https://discord.com/api/oauth2/authorize?client_id=789455003508539393&permissions=34982976&scope=bot), [Rudolph](https://discord.com/api/oauth2/authorize?client_id=789404709366661170&permissions=34982976&scope=bot)"
+
 
 ## Instructions:
 
