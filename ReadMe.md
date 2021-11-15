@@ -27,7 +27,7 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
   - **Note, you are not allowed to remove the credit in the footer of the help emed if you self-host this bot.**
 
 ## Links:
-- [Dylan James](https://github.com/dylanjamesdev)
 - Check out [Tritan Bot](https://tritan.gg/invite) please!
-- [Support Server](https://discord.gg/scugye2)
+- Author: [Dylan James](https://github.com/dylanjamesdev)
+- Support: [Discord Server](https://discord.gg/scugye2)
 
