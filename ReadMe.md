@@ -18,7 +18,9 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 5. Invite all the reindeer bots to your server.
 6. Send a message in any channel to have the reindeer join their channel and let them sit pretty! Ping them to give them a carrot! :p
 
-## Credits
-[Dylan James](https://github.com/dylanjamesdev)
+## Links!
+- [Dylan James](https://github.com/dylanjamesdev)
+- Check out [Tritan Bot](https://tritan.gg/invite) please!
+- [Support Server](https://discord.gg/scugye2)
 
-Check out [Tritan Bot](https://tritan.gg/invite) please!
+## Note, you are not allowed to remove the credit in the footer of the help emed if you self-host this bot.
