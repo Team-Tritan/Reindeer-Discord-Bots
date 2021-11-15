@@ -4,12 +4,12 @@
 It's almost that time of the year again! To keep up last year's fun, I've decided to bring back the Reindeer Bots so everyone's server can be just a little bit more merry! This bot will sit in a voice channel named 'Reindeer Pin' to show some spirit in your server.
 
 
-## Info
+## Info:
 - `[Mention] help` pulls up a info menu.
 - `[Mention]` gives the reindeer a carrot.
 
 
-## Instructions
+## Instructions:
 
 1. Install discord.js v12.5.1.
 2. Make a bot application in the Discord developer portal for every reindeer, yes, every one.
@@ -18,7 +18,7 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 5. Invite all the reindeer bots to your server.
 6. Send a message in any channel to have the reindeer join their channel and let them sit pretty! Ping them to give them a carrot! :p
 
-## Links!
+## Links:
 - [Dylan James](https://github.com/dylanjamesdev)
 - Check out [Tritan Bot](https://tritan.gg/invite) please!
 - [Support Server](https://discord.gg/scugye2)
