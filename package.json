@@ -5,25 +5,27 @@
   "main": "reindeer.js",
   "dependencies": {
     "abort-controller": "^3.0.0",
-    "combined-stream": "^1.0.8",
     "asynckit": "^0.4.0",
+    "combined-stream": "^1.0.8",
     "delayed-stream": "^1.0.0",
     "discord.js": "12.5.1",
-    "mime-db": "^1.51.0",
     "event-target-shim": "^5.0.1",
+    "mime-db": "^1.51.0",
     "mime-types": "^2.1.34",
     "node-fetch": "^2.6.6",
+    "nodemon": "^2.0.20",
     "prism-media": "^1.3.2",
     "setimmediate": "^1.0.5",
-    "tweetnacl": "^1.0.3",
     "tr46": "^0.0.3",
-    "whatwg-url": "^5.0.0",
+    "tweetnacl": "^1.0.3",
+    "typescript": "^4.9.3",
     "webidl-conversions": "^3.0.1",
+    "whatwg-url": "^5.0.0",
     "ws": "^7.5.5"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon reindeer.ts"
   },
   "repository": {
     "type": "git",
