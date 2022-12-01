@@ -1,6 +1,6 @@
 "use strict";
 
-import Discord, { Client, VoiceConnection } from "discord.js";
+import Discord, { Channel, Client, VoiceConnection } from "discord.js";
 import { data } from "./config";
 
 async function setPresence(reindeer: Client) {
@@ -34,7 +34,7 @@ for (const i of tokens) {
       message.react("💖");
     }
 
-    if (ctn.includes(`<@!${self_id}> help`)) {
+    if (ctn.includes(`<@${self_id}> help`)) {
       let embed = new Discord.MessageEmbed()
         .setColor("ff0000")
         .setTitle("Reindeer Bots")
@@ -52,9 +52,9 @@ for (const i of tokens) {
     }
 
     const ch = message.guild.channels.cache.find(
-      (channel) =>
+      (channel: any) =>
         channel.name.toLowerCase() === "reindeer pen" &&
-        channel.type === "GUILD_VOICE"
+        channel.type === "voice"
     );
 
     if (ch)
