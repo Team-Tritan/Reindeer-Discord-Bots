@@ -11,22 +11,24 @@ export function isMaster(reindeer: Client) {
 
 // duh
 export async function setPresence(reindeer: Client) {
-  if (isMaster(reindeer)) {
-    reindeer.user?.setPresence({
-      activity: {
-        name: `We're back! | @mention help`,
-      },
-      status: "dnd",
-    });
-  } else {
-    reindeer.user?.setPresence({
-      activity: {
-        name: `getting ready for christmas! | @mention help`,
-      },
-      status: "idle",
-    });
-    console.log(`[${reindeer.user?.tag}] Presence Updated`);
-  }
+  setInterval(async () => {
+    if (isMaster(reindeer)) {
+      reindeer.user?.setPresence({
+        activity: {
+          name: `We're back! | @mention help`,
+        },
+        status: "dnd",
+      });
+    } else {
+      reindeer.user?.setPresence({
+        activity: {
+          name: `getting ready for christmas! | @mention help`,
+        },
+        status: "idle",
+      });
+      console.log(`[${reindeer.user?.tag}] Presence Updated`);
+    }
+  }, 120000);
 }
 
 // only for us <33

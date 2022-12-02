@@ -13,10 +13,7 @@ for (const i of tokens) {
     console.log(`[${reindeer.user?.tag}] Ready`);
     await fn.changeRoleColor(reindeer); // only for us <33
     await fn.joinReindeerPen(reindeer);
-
-    setInterval(async () => {
-      await fn.setPresence(reindeer);
-    }, 60000);
+    await fn.setPresence(reindeer);
   });
 
   reindeer.on("message", (message: any) => {
