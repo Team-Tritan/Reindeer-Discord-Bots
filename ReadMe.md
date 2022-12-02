@@ -21,6 +21,8 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 3. Add all tokens to the config file array.
 4. Create a voice channel named 'Reindeer Pen'.
 5. Invite all the reindeer bots to your server.
+6. run `yarn install` or get yarn bozo
+7. run `yarn start`
 6. Send a message in any channel to have the reindeer join their channel and let them sit pretty! Ping them to give them a carrot! :p
 
 ## License
@@ -32,5 +34,5 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 ## Links:
 - Check out [Tritan Bot](https://tritan.gg/invite) please!
 - Author: [Dylan James](https://github.com/dylanjamesdev)
-- Support: [Tritan Development](https://discord.gg/scugye2)
+- Support: [Tritan Development](https://discord.gg/http)
 
