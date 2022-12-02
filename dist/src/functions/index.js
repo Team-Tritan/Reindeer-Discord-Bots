@@ -8,9 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.joinReindeerPen = exports.changeRoleColor = exports.setPresence = exports.isMaster = void 0;
-const config_1 = require("../config");
+exports.joinReindeerPen = exports.changeRoleColor = exports.setPresence = exports.attachListeners = exports.isMaster = void 0;
+const config_1 = require("../../config");
+const ready_1 = __importDefault(require("../events/ready"));
+const message_1 = __importDefault(require("../events/message"));
 // checks for Rudolph ID
 function isMaster(reindeer) {
     var _a, _b;
@@ -20,6 +25,15 @@ function isMaster(reindeer) {
         return false;
 }
 exports.isMaster = isMaster;
+// attach listeners
+function attachListeners(reindeer) {
+    (0, ready_1.default)(reindeer);
+    (0, message_1.default)(reindeer);
+    process.on("unhandledRejection", (error) => {
+        console.error(error);
+    });
+}
+exports.attachListeners = attachListeners;
 // Duh
 function setPresence(reindeer) {
     return __awaiter(this, void 0, void 0, function* () {

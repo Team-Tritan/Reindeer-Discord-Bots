@@ -1,12 +1,24 @@
 "use strict";
 
-import { Client, VoiceConnection, VoiceBroadcast } from "discord.js";
-import { data } from "../config";
+import { Client, VoiceConnection } from "discord.js";
+import { data } from "../../config";
+import onReady from "../events/ready";
+import onMessage from "../events/message";
 
 // checks for Rudolph ID
 export function isMaster(reindeer: Client) {
   if (reindeer?.user?.id === data.master_id) return true;
   if (reindeer?.user?.id !== data.master_id) return false;
+}
+
+// attach listeners
+export function attachListeners(reindeer: Client) {
+  onReady(reindeer);
+  onMessage(reindeer);
+
+  process.on("unhandledRejection", (error) => {
+    console.error(error);
+  });
 }
 
 // Duh
