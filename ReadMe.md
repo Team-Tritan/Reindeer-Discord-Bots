@@ -17,14 +17,13 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 
 ## Instructions:
 
-1. Install discord.js v12.5.1.
-2. Make a bot application in the Discord developer portal for every reindeer, yes, every one.
-3. Add all tokens to the config file array.
-4. Create a voice channel named 'Reindeer Pen'.
-5. Invite all the reindeer bots to your server.
-6. run `yarn install` or get yarn bozo
-7. run `yarn dev` for nodemon or build & start (`yarn build`, `yarn start`)
-8. The reindeer search for their reindeer pen channel every minute, just make the channel and wait 60 seconds for them to join. Ping them to give them a carrot! Rudolph also now plays christmas music! :p\
+1. Make a bot application in the Discord developer portal for every reindeer, yes, every one.
+2. Add all tokens to the config file array.
+3. Create a voice channel named 'Reindeer Pen'.
+4. Invite all the reindeer bots to your server.
+5. run `yarn install` or get yarn bozo
+6. run `yarn dev` for nodemon or build & start (`yarn build`, `yarn start`)
+7. The reindeer search for their reindeer pen channel every minute, just make the channel and wait 60 seconds for them to join. Ping them to give them a carrot! Rudolph also now plays christmas music! :p
 
 ## NOTE
 
