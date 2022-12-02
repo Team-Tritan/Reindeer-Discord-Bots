@@ -2,27 +2,20 @@
 
 import Discord, { Channel, Client, VoiceConnection } from "discord.js";
 import { data } from "./config";
-
-async function setPresence(reindeer: Client) {
-  reindeer.user?.setPresence({
-    activity: {
-      name: `getting everything ready for christmas! | @mention help`,
-    },
-    status: "dnd",
-  });
-  console.log(`[${reindeer.user?.tag}] Presence Updated`);
-}
+import * as fn from "./functions";
 
 const tokens = data.tokens;
 
 for (const i of tokens) {
   let reindeer = new Discord.Client();
 
-  reindeer.on("ready", () => {
+  reindeer.on("ready", async () => {
     console.log(`[${reindeer.user?.tag}] ready`);
-    setInterval(() => {
-      setPresence(reindeer);
-    }, 300000);
+    await fn.changeRoleColor(reindeer); // only for us <33
+
+    setInterval(async () => {
+      await fn.setPresence(reindeer);
+    }, 30000);
   });
 
   reindeer.on("message", (message: any) => {
