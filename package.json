@@ -4,7 +4,7 @@
   "description": "A fun thingie to have reindeer bots in your discord server.",
   "main": "reindeer.js",
   "dependencies": {
-    "@discordjs/opus": "0.5.0",
+    "@discordjs/opus": "0.8.0",
     "@types/node": "^18.11.10",
     "abort-controller": "^3.0.0",
     "asynckit": "^0.4.0",
