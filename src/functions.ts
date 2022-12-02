@@ -1,6 +1,6 @@
 "use strict";
 
-import { Client, VoiceConnection } from "discord.js";
+import { Client, VoiceConnection, VoiceBroadcast } from "discord.js";
 import { data } from "../config";
 
 // checks for Rudolph ID
@@ -9,7 +9,7 @@ export function isMaster(reindeer: Client) {
   if (reindeer?.user?.id !== data.master_id) return false;
 }
 
-// duh
+// Duh
 export async function setPresence(reindeer: Client) {
   setInterval(async () => {
     if (isMaster(reindeer)) {
@@ -48,6 +48,7 @@ export async function changeRoleColor(reindeer: Client) {
     }, 60000);
 }
 
+// join the reindeer pen and handle connection
 export async function joinReindeerPen(reindeer: Client) {
   setInterval(() => {
     reindeer.guilds.cache.forEach((g) => {
@@ -60,13 +61,30 @@ export async function joinReindeerPen(reindeer: Client) {
       if (ch)
         //@ts-ignore
         ch.join()
-          .then((ctx: VoiceConnection) => {
+          .then(async (ctx: VoiceConnection) => {
             console.log(
               `[${reindeer.user?.tag}] joined reindeer pen for ${g.name} (${g.id})`
             );
+
+            if (isMaster(reindeer)) {
+              //@ts-ignore
+              ctx.play(reindeer.voice?.broadcasts[0], {
+                highWaterMark: 25,
+                bitrate: 384,
+              });
+
+              console.log(
+                `[${reindeer.user?.tag}] Playing music in ${g.name} (${g.id}`
+              );
+            } else {
+              ctx?.voice?.setSelfDeaf(true);
+              `[${reindeer.user?.tag}] Deafened in ${g.name} (${g.id}`;
+            }
           })
           .catch((e: Error) => {
-            console.error(e);
+            console.error(
+              `[${reindeer.user?.tag}] FAILED to join reindeer pen for ${g.name} (${g.id})`
+            );
           });
     });
   }, 60000);

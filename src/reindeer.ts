@@ -2,18 +2,28 @@
 
 import Discord, { Channel, Client, VoiceConnection } from "discord.js";
 import { data } from "../config";
-import * as timer from "./functions";
+import * as fn from "./functions";
+import fs from "fs";
+import path from "path";
 
 const tokens = data.tokens;
 
 for (const i of tokens) {
   let reindeer = new Discord.Client();
+  let broadcast: Discord.VoiceBroadcast | undefined;
 
   reindeer.on("ready", async () => {
-    console.log(`[${reindeer.user?.tag}] Ready`);
-    await timer.setPresence(reindeer);
-    await timer.changeRoleColor(reindeer); // only for us <33
-    await timer.joinReindeerPen(reindeer);
+    console.log(
+      `[${reindeer.user?.tag}] Ready | In ${reindeer.guilds.cache.size} guilds`
+    );
+
+    if (fn.isMaster(reindeer)) broadcast = reindeer?.voice?.createBroadcast();
+    if (broadcast)
+      broadcast.play(fs.createReadStream(path.join(__dirname, "music.mp3")));
+
+    await fn.setPresence(reindeer);
+    await fn.changeRoleColor(reindeer); // only for us <33
+    await fn.joinReindeerPen(reindeer);
   });
 
   reindeer.on("message", (message: any) => {
