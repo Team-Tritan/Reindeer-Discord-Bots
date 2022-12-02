@@ -23,7 +23,7 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 5. Invite all the reindeer bots to your server.
 6. run `yarn install` or get yarn bozo
 7. run `yarn start`
-6. Send a message in any channel to have the reindeer join their channel and let them sit pretty! Ping them to give them a carrot! :p
+8. Send a message in any channel to have the reindeer join their channel and let them sit pretty! Ping them to give them a carrot! :p
 
 ## License
 - Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) 

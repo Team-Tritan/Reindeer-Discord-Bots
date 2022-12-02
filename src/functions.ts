@@ -35,7 +35,7 @@ export async function changeRoleColor(reindeer: Client) {
     setInterval(() => {
       let g = reindeer.guilds.cache.get("935395886761140264");
       let role = g?.roles.cache.find((r) => r.name === "Reindeer");
-      let colors = ["#ff0000", "#009d07", "94ee3f", "#ba4747", "#db8c61"];
+      let colors = ["#ff0000", "#009d07", "94ee3f", "#ba4747"];
       let random = Math.floor(Math.random() * colors.length);
       try {
         role?.setColor(colors[random]);
