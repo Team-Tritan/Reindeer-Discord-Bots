@@ -55,6 +55,6 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 
 ## Links:
 
-- Check out [Tritan Bot](https://tritan.gg/invite) please!
-- Author: [Dylan James](https://github.com/dylanjamesdev)
-- Support: [Tritan Development](https://discord.gg/http)
+- Check out [our discord server](https://tritan.gg/support) please!
+- Author: [Tritan Dev](https://tritan.dev)
+- Bot Support: [Tritan Development](https://discord.gg/http)
