@@ -2,7 +2,7 @@
 
 import Discord, { Channel, Client, VoiceConnection } from "discord.js";
 import { data } from "../config";
-import * as fn from "./functions";
+import * as timer from "./functions";
 
 const tokens = data.tokens;
 
@@ -11,9 +11,9 @@ for (const i of tokens) {
 
   reindeer.on("ready", async () => {
     console.log(`[${reindeer.user?.tag}] Ready`);
-    await fn.changeRoleColor(reindeer); // only for us <33
-    await fn.joinReindeerPen(reindeer);
-    await fn.setPresence(reindeer);
+    await timer.setPresence(reindeer);
+    await timer.changeRoleColor(reindeer); // only for us <33
+    await timer.joinReindeerPen(reindeer);
   });
 
   reindeer.on("message", (message: any) => {
