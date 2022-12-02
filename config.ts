@@ -1,3 +1,6 @@
 export const data = {
-  tokens: ["hehe"],
+  master_id: "",
+  tokens: [
+    "AAAAA"
+  ],
 };

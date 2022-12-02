@@ -25,7 +25,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon reindeer.ts"
+    "start": "cd src && nodemon reindeer.ts"
   },
   "repository": {
     "type": "git",

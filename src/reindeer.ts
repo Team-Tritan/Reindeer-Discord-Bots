@@ -1,7 +1,7 @@
 "use strict";
 
 import Discord, { Channel, Client, VoiceConnection } from "discord.js";
-import { data } from "./config";
+import { data } from "../config";
 import * as fn from "./functions";
 
 const tokens = data.tokens;
@@ -10,12 +10,12 @@ for (const i of tokens) {
   let reindeer = new Discord.Client();
 
   reindeer.on("ready", async () => {
-    console.log(`[${reindeer.user?.tag}] ready`);
+    console.log(`[${reindeer.user?.tag}] Ready`);
     await fn.changeRoleColor(reindeer); // only for us <33
 
     setInterval(async () => {
       await fn.setPresence(reindeer);
-    }, 30000);
+    }, 60000);
   });
 
   reindeer.on("message", (message: any) => {
