@@ -24,7 +24,28 @@ It's almost that time of the year again! To keep up last year's fun, I've decide
 5. Invite all the reindeer bots to your server.
 6. run `yarn install` or get yarn bozo
 7. run `yarn dev` for nodemon or build & start (`yarn build`, `yarn start`)
-8. The reindeer search for their reindeer pen channel every minute, just make the channel and wait 60 seconds for them to join. Ping them to give them a carrot! Rudolph also now plays christmas music! :p
+8. The reindeer search for their reindeer pen channel every minute, just make the channel and wait 60 seconds for them to join. Ping them to give them a carrot! Rudolph also now plays christmas music! :p\
+
+## NOTE
+
+- Due to djs v12 being depreciated, you need to modify the node module by adding 1 line to the following file:
+
+  `node_modules/discord.js/src/client/actions/MessageCreate.js`
+
+- Under line 9 (the line defining what a channel is), you need to add the following to ignore voice text channels as djs doesn't know how to handle them and the bot crashes.
+
+  `if (!channel.isText()) return {};`
+
+- It should look like this:
+
+  ```class MessageCreateAction extends Action {
+  handle(data) {
+    const client = this.client;
+    const channel = client.channels.cache.get(data.channel_id);
+    if (!channel.isText()) return {}; // added
+    if (channel) {
+      ...
+  ```
 
 ## License
 
