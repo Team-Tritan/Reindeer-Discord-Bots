@@ -9,6 +9,5 @@ const tokens = data.tokens;
 for (const i of tokens) {
   let reindeer = new Discord.Client();
   fn.attachListeners(reindeer);
-
   reindeer.login(i);
 }
