@@ -7,8 +7,8 @@ import onMessage from "../events/message";
 
 // checks for Rudolph ID
 export function isMaster(reindeer: Client) {
-  if (data.master_ids.includes(reindeer?.user?.id)) return true;
-  if (!data.master_ids.includes(reindeer?.user?.id)) return false;
+  if (data.master_ids.includes(reindeer.user.id)) return true;
+  if (!data.master_ids.includes(reindeer.user.id)) return false;
 }
 
 // attach listeners
