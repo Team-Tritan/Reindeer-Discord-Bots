@@ -46,7 +46,11 @@ function onReady(reindeer) {
         if (fn.isMaster(reindeer))
             broadcast = (_b = reindeer === null || reindeer === void 0 ? void 0 : reindeer.voice) === null || _b === void 0 ? void 0 : _b.createBroadcast();
         if (broadcast)
-            broadcast.play(fs_1.default.createReadStream(path_1.default.join(__dirname, "../music/og_christmas.mp3")));
+            broadcast.play(fs_1.default.createReadStream(path_1.default.join(__dirname, "../music/edm.mp3")));
+        setInterval(() => {
+            if (broadcast)
+                broadcast.play(fs_1.default.createReadStream(path_1.default.join(__dirname, "../music/edm.mp3")));
+        }, 2700000);
         yield fn.setPresence(reindeer);
         yield fn.changeRoleColor(reindeer); // only for us <33
         yield fn.joinReindeerPen(reindeer);

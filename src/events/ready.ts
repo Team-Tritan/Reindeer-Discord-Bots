@@ -11,13 +11,20 @@ export default function onReady(reindeer: Client) {
       `[${reindeer.user?.tag}] Ready | ${reindeer.guilds.cache.size} guilds`
     );
 
-    let broadcast;
+    let broadcast: any;
     if (fn.isMaster(reindeer)) broadcast = reindeer?.voice?.createBroadcast();
 
     if (broadcast)
       broadcast.play(
-        fs.createReadStream(path.join(__dirname, "../music/og_christmas.mp3"))
+        fs.createReadStream(path.join(__dirname, "../music/edm.mp3"))
       );
+
+    setInterval(() => {
+      if (broadcast)
+        broadcast.play(
+          fs.createReadStream(path.join(__dirname, "../music/edm.mp3"))
+        );
+    }, 2700000);
 
     await fn.setPresence(reindeer);
     await fn.changeRoleColor(reindeer); // only for us <33

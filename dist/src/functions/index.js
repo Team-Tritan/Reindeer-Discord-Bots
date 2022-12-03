@@ -42,7 +42,7 @@ function setPresence(reindeer) {
             if (isMaster(reindeer)) {
                 (_a = reindeer.user) === null || _a === void 0 ? void 0 : _a.setPresence({
                     activity: {
-                        name: `We're back! | @mention help`,
+                        name: `EDM christmas music today! | @mention help`,
                     },
                     status: "dnd",
                 });

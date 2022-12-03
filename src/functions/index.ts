@@ -27,7 +27,7 @@ export async function setPresence(reindeer: Client) {
     if (isMaster(reindeer)) {
       reindeer.user?.setPresence({
         activity: {
-          name: `We're back! | @mention help`,
+          name: `EDM christmas music today! | @mention help`,
         },
         status: "dnd",
       });
