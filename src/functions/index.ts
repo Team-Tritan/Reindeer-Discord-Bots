@@ -7,7 +7,9 @@ import onMessage from "../events/message";
 
 // checks for Rudolph ID
 export function isMaster(reindeer: Client) {
+  //@ts-ignore
   if (data.master_ids.includes(reindeer.user.id)) return true;
+  //@ts-ignore
   if (!data.master_ids.includes(reindeer.user.id)) return false;
 }
 
