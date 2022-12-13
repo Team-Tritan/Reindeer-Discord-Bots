@@ -31,7 +31,7 @@
   "scripts": {
     "dev": "cd src && nodemon reindeer.ts",
     "build": "npx tsc --build",
-    "start": "cd dist/src && pm2 start reindeer.js"
+    "start": "pm2 start ./dist/src/reindeer.js"
   },
   "repository": {
     "type": "git",
