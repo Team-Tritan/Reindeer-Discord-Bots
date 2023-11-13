@@ -82,14 +82,19 @@ export async function joinReindeerPen(reindeer: Client) {
 
             if (isMaster(reindeer)) {
               //@ts-ignore
-              ctx.play(reindeer.voice?.broadcasts[0], {
-                highWaterMark: 25,
-                bitrate: 384,
-              });
+                try {
+                  //@ts-ignore
+                  ctx.play(reindeer.voice?.broadcasts[0], {
+                    highWaterMark: 25,
+                    bitrate: 384,
+                  });
 
-              console.log(
-                `[${reindeer.user?.tag}] Playing music in ${g.name} (${g.id}`
-              );
+                  console.log(
+                    `[${reindeer.user?.tag}] Playing music in ${g.name} (${g.id}`
+                  );
+              } catch (e){
+                console.error(e);
+              }
             } else {
               ctx?.voice?.setSelfDeaf(true);
               `[${reindeer.user?.tag}] Deafened in ${g.name} (${g.id}`;

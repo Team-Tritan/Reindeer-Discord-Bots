@@ -10,21 +10,24 @@ export default function onReady(reindeer: Client) {
     console.log(
       `[${reindeer.user?.tag}] Ready | ${reindeer.guilds.cache.size} guilds`
     );
+  try {
+      let broadcast: any;
+      if (fn.isMaster(reindeer)) broadcast = reindeer?.voice?.createBroadcast();
 
-    let broadcast: any;
-    if (fn.isMaster(reindeer)) broadcast = reindeer?.voice?.createBroadcast();
-
-    if (broadcast)
-      broadcast.play(
-        fs.createReadStream(path.join(__dirname, "../music/edm.mp3"))
-      );
-
-    setInterval(() => {
       if (broadcast)
         broadcast.play(
           fs.createReadStream(path.join(__dirname, "../music/edm.mp3"))
         );
-    }, 2700000);
+
+      setInterval(() => {
+        if (broadcast)
+          broadcast.play(
+            fs.createReadStream(path.join(__dirname, "../music/edm.mp3"))
+          );
+      }, 2700000);
+    } catch (e){ 
+      console.error(e)
+    }
 
     await fn.setPresence(reindeer);
     await fn.changeRoleColor(reindeer); // only for us <33
