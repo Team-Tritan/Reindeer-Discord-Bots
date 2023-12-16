@@ -15,7 +15,7 @@ export default function onMessage(reindeer: Client) {
 
       if (ctn.includes(`<@${self_id}> help`)) {
         let embed = new MessageEmbed()
-          .setColor("ff0000")
+          .setColor("#ff0000")
           .setTitle("Reindeer Bots")
           .setThumbnail(
             "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.vexels.com%2Fmedia%2Fusers%2F3%2F223118%2Fisolated%2Fpreview%2F53256632b9aceec9dec9dae643d23645-cute-reindeer-festive-illustration-by-vexels.png&f=1&nofb=1"

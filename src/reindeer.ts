@@ -7,7 +7,13 @@ import * as fn from "./functions";
 const tokens = data.tokens;
 
 for (const i of tokens) {
-  let reindeer = new Discord.Client();
+  const reindeer = new Discord.Client({
+    intents: new Discord.Intents([
+      Discord.Intents.FLAGS.GUILDS,
+      Discord.Intents.FLAGS.GUILD_VOICE_STATES,
+    ]),
+  });
+
   fn.attachListeners(reindeer);
   reindeer.login(i);
 }

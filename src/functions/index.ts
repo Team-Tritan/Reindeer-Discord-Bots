@@ -1,19 +1,34 @@
 "use strict";
 
-import { Client, VoiceConnection } from "discord.js";
+import Discord, {
+  Client,
+  PresenceStatusData,
+  ColorResolvable,
+} from "discord.js";
+import {
+  joinVoiceChannel,
+  createAudioPlayer,
+  createAudioResource,
+  entersState,
+  VoiceConnectionStatus,
+} from "@discordjs/voice";
 import { data } from "../../config";
 import onReady from "../events/ready";
 import onMessage from "../events/message";
+import fs from "fs";
+import path from "path";
 
-// checks for Rudolph ID
+const musicFiles = [
+  "../music/modern.mp3",
+  "../music/edm.mp3",
+  "../music/og_christmas.mp3",
+];
+
 export function isMaster(reindeer: Client) {
   //@ts-ignore
-  if (data.master_ids.includes(reindeer.user.id)) return true;
-  //@ts-ignore
-  if (!data.master_ids.includes(reindeer.user.id)) return false;
+  return data.master_ids.includes(reindeer.user.id);
 }
 
-// attach listeners
 export function attachListeners(reindeer: Client) {
   onReady(reindeer);
   onMessage(reindeer);
@@ -23,88 +38,97 @@ export function attachListeners(reindeer: Client) {
   });
 }
 
-// Duh
+function setReindeerPresence(
+  reindeer: Client,
+  name: string,
+  status: PresenceStatusData
+) {
+  reindeer.user?.setPresence({
+    activities: [
+      {
+        name: `${name} | @mention help`,
+      },
+    ],
+    status: status,
+  });
+}
+
 export async function setPresence(reindeer: Client) {
   setInterval(async () => {
     if (isMaster(reindeer)) {
-      reindeer.user?.setPresence({
-        activity: {
-          name: `EDM christmas music today! | @mention help`,
-        },
-        status: "dnd",
-      });
+      setReindeerPresence(reindeer, `EDM christmas music today!`, "dnd");
     } else {
-      reindeer.user?.setPresence({
-        activity: {
-          name: `getting ready for christmas! | @mention help`,
-        },
-        status: "idle",
-      });
+      setReindeerPresence(reindeer, `getting ready for christmas!`, "idle");
       console.log(`[${reindeer.user?.tag}] Presence Updated`);
     }
   }, 120000);
 }
 
-// only for us <33
+function changeColor(reindeer: Client, role: any, colors: string[]) {
+  let random = Math.floor(Math.random() * colors.length);
+  try {
+    role?.setColor(colors[random] as ColorResolvable);
+    console.log(`[${reindeer.user?.tag}] changed color in Tritan Server`);
+  } catch (e) {
+    console.error("ERROR CHANGING ROLE COLOR: \n", e);
+  }
+}
+
 export async function changeRoleColor(reindeer: Client) {
   if (isMaster(reindeer))
     setInterval(() => {
       let g = reindeer.guilds.cache.get("935395886761140264");
       let role = g?.roles.cache.find((r) => r.name === "Reindeer");
       let colors = ["#ff0000", "#009d07", "94ee3f", "#ba4747"];
-      let random = Math.floor(Math.random() * colors.length);
-      try {
-        role?.setColor(colors[random]);
-        console.log(`[${reindeer.user?.tag}] changed color in Tritan Server`);
-      } catch (e) {
-        console.error("ERROR CHANGING ROLE COLOR: \n", e);
-      }
+      changeColor(reindeer, role, colors);
     }, 60000);
 }
 
-// join the reindeer pen and handle connection
+function createAndPlayAudio(connection: any, files: string[], player: any) {
+  let index = 0;
+
+  function playNextFile() {
+    const resource = createAudioResource(
+      fs.createReadStream(path.join(__dirname, files[index]))
+    );
+    player.play(resource);
+    index = (index + 1) % files.length;
+  }
+
+  player.on("idle", playNextFile);
+  playNextFile();
+}
+
 export async function joinReindeerPen(reindeer: Client) {
-  setInterval(() => {
-    reindeer.guilds.cache.forEach((g) => {
-      let ch = g.channels.cache.find(
+  setInterval(async () => {
+    reindeer.guilds.cache.forEach(async (g: any) => {
+      let channels = await g.channels.fetch();
+
+      let ch = channels.find(
         (channel: any) =>
+          channel instanceof Discord.GuildChannel &&
           channel.name.toLowerCase() === "reindeer pen" &&
-          channel.type === "voice"
+          channel.type === "GUILD_VOICE"
       );
 
-      if (ch)
-        //@ts-ignore
-        ch.join()
-          .then(async (ctx: VoiceConnection) => {
-            console.log(
-              `[${reindeer.user?.tag}] joined reindeer pen for ${g.name} (${g.id})`
-            );
-
-            if (isMaster(reindeer)) {
-              //@ts-ignore
-                try {
-                  //@ts-ignore
-                  ctx.play(reindeer.voice?.broadcasts[0], {
-                    highWaterMark: 25,
-                    bitrate: 384,
-                  });
-
-                  console.log(
-                    `[${reindeer.user?.tag}] Playing music in ${g.name} (${g.id}`
-                  );
-              } catch (e){
-                console.error(e);
-              }
-            } else {
-              ctx?.voice?.setSelfDeaf(true);
-              `[${reindeer.user?.tag}] Deafened in ${g.name} (${g.id}`;
-            }
-          })
-          .catch((e: Error) => {
-            console.error(
-              `[${reindeer.user?.tag}] FAILED to join reindeer pen for ${g.name} (${g.id})`
-            );
+      if (ch) {
+        try {
+          const connection = joinVoiceChannel({
+            channelId: ch.id,
+            guildId: g.id,
+            adapterCreator: g.voiceAdapterCreator,
           });
+
+          await entersState(connection, VoiceConnectionStatus.Ready, 30_000);
+
+          if (isMaster(reindeer)) {
+            const player = createAudioPlayer();
+            createAndPlayAudio(connection, musicFiles, player);
+          }
+        } catch (error) {
+          console.log(`Failed to join channel: ${ch.name} in ${g.name}`);
+        }
+      }
     });
   }, 60000);
 }
